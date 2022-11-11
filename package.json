@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "express": "^4.18.1",
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
+  },
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "profile creator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnrob112/team-profile-gen.git"
+  },
+  "author": "John Robinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnrob112/team-profile-gen/issues"
+  },
+  "homepage": "https://github.com/johnrob112/team-profile-gen#readme",
+  "keywords": []
+}
