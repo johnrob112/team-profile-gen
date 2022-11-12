@@ -272,7 +272,7 @@ beginPrompts()
 .then(promptMoreTeamMembers)
 .then((htmlTemplate) => {
     // use writeFile from fs
-    fs.writeFile("./dist/index.html", tetmplateHelper, err => {
+    fs.writeFile("./dist/index.html", htmlTemplate, err => {
         if(err) throw err;
         console.log('The file has been successfully written.');
     })
