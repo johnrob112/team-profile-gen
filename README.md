@@ -1,0 +1,1 @@
+This project generates a team profile using node.js and jest for testing.
