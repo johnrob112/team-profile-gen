@@ -12,8 +12,8 @@ const questions = [
     type: "input",
     name: "mName",
     message: "What is the manager's name?",
-    validate: (enteredN) => {
-      if (!enteredN) {
+    validate: (enteredName) => {
+      if (!enteredName) {
         console.log("Please enter a name");
         return false;
       } else {
@@ -38,8 +38,8 @@ const questions = [
     type: "input",
     name: "mEmail",
     message: "What is the manager's Email?",
-    validate: (enteredE) => {
-      if (!enteredE) {
+    validate: (enteredEmail) => {
+      if (!enteredEmail) {
         console.log("Please enter an Email");
         return false;
       } else {
@@ -51,8 +51,8 @@ const questions = [
     type: "input",
     name: "managerON",
     message: "What is the manager's office number?",
-    validate: (enteredON) => {
-      if (!enteredON) {
+    validate: (enteredOfficeNumber) => {
+      if (!enteredOfficeNumber) {
         console.log("Please enter an office number");
         return false;
       } else {
@@ -78,8 +78,8 @@ const employeeQuestions = [
     type: "input",
     name: "eName",
     message: "What is the name of the engineer?",
-    validate: (enteredN) => {
-      if (!enteredN) {
+    validate: (enteredName) => {
+      if (!enteredName) {
         console.log("Please enter a name");
         return false;
       } else {
@@ -118,8 +118,8 @@ const employeeQuestions = [
     type: "input",
     name: "eEmail",
     message: "What is the engineer's Email?",
-    validate: (enteredE) => {
-      if (!enteredE) {
+    validate: (enteredEmail) => {
+      if (!enteredEmail) {
         console.log("Please enter an Email");
         return false;
       } else {
@@ -146,8 +146,8 @@ const employeeQuestions = [
         return true;
       }
     },
-    when: ({ userSelection }) => {
-      if (userSelection === "I want to add an engineer") {
+    when: ({ userChoice }) => {
+      if (userChoice === "I want to add an engineer") {
         return true;
       } else {
         false;
@@ -158,8 +158,8 @@ const employeeQuestions = [
     type: "input",
     name: "iName",
     message: "What is the name of the intern?",
-    validate: (enteredN) => {
-      if (!enteredN) {
+    validate: (enteredName) => {
+      if (!enteredName) {
         console.log("Please enter a name");
         return false;
       } else {
@@ -198,8 +198,8 @@ const employeeQuestions = [
     type: "input",
     name: "iEmail",
     message: "What is the intern's Email?",
-    validate: (enteredE) => {
-      if (!enteredE) {
+    validate: (enteredEmail) => {
+      if (!enteredEmail) {
         console.log("Please enter an Email");
         return false;
       } else {
@@ -218,8 +218,8 @@ const employeeQuestions = [
     type: "input",
     name: "iSchool",
     message: "What is the intern's School?",
-    validate: (enteredS) => {
-      if (!enteredS) {
+    validate: (enteredSchool) => {
+      if (!enteredSchool) {
         console.log("Please enter a School");
         return false;
       } else {
@@ -258,7 +258,7 @@ function promptMoreTeamMembers(team){
   return inquirer
   .prompt(employeeQuestions)
   .then( (newTeamMember) => {
-    if(newTeamMember.userSelection === 'I am finished adding team members') {
+    if(newTeamMember.userChoice === 'I am finished adding team members') {
       console.log(team.restOfTeam)
       return htmlTemplate(team);
     }
@@ -270,9 +270,9 @@ function promptMoreTeamMembers(team){
 
 beginPrompts()
 .then(promptMoreTeamMembers)
-.then((generatedHtml) => {
+.then((htmlTemplate) => {
     // use writeFile from fs
-    fs.writeFile("./dist/index.html", generatedHtml, err => {
+    fs.writeFile("./dist/index.html", htmlTemplate, err => {
         if(err) throw err;
         console.log('The file has been successfully written.');
     })
