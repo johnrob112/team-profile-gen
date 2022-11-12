@@ -1,9 +1,9 @@
-// you're also going to import your classes, i.e., Manager, Engineer Intern
+// import classes
 const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 
-// do the same for engineer and intern
+
 
 // in this file you're going to have a (some?) functions
 function generateManagerHtmlCard(manager) {
@@ -32,7 +32,7 @@ function generateManagerHtmlCard(manager) {
         <i class="fas fa-mug-hot" aria-hidden="true">Manager ${manager.getName()}</i>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID ${manager.getId()}</li>
+            <li class="list-group-item">ID ${manager.getID()}</li>
             <li class="list-group-item">Email ${manager.getEmail()}</li>
             <li class="list-group-item">Office Number ${manager.getOfficeNumber()} </li>
         </ul></div>
@@ -63,7 +63,7 @@ function generateRestOfTeamCards({ restOfTeam }) {
         </div>
             `;
         masterString += engineerString // masterString = masterString + engineerString
-    } else   {(employee.userChoice === "I want to add and Intern")
+    } else   {(employee.userChoice === "I want to add an Intern")
        const myIntern = new Intern (
         employee.iName,
         employee.iID,
@@ -96,8 +96,8 @@ function generateRestOfTeamCards({ restOfTeam }) {
     `;
 }
 
-// export the functions, you may need to allow for passing an argument into this function
-// you will need to!
+// export the function
+
 module.exports = (userAnswersObj) => {
   // here you might want to destructure your manager's info from the answersObj
   const {
